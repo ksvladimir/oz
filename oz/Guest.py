@@ -173,6 +173,9 @@ class Guest(object):
         self.image_type = oz.ozutil.config_get_key(config, 'libvirt',
                                                    'image_type', 'raw')
 
+        self.image_cache = oz.ozutil.config_get_key(config, 'libvirt',
+                                                    'image_cache', 'default')
+
         # configuration from 'cache' section
         self.cache_original_media = oz.ozutil.config_get_boolean_key(config,
                                                                      'cache',
@@ -469,7 +472,7 @@ class Guest(object):
         bootDisk = self.lxml_subelement(devices, "disk", None, {'device':'disk', 'type':'file'})
         self.lxml_subelement(bootDisk, "target", None, {'dev':self.disk_dev, 'bus':self.disk_bus})
         self.lxml_subelement(bootDisk, "source", None, {'file':self.diskimage})
-        self.lxml_subelement(bootDisk, "driver", None, {'name':'qemu', 'type':self.image_type})
+        self.lxml_subelement(bootDisk, "driver", None, {'name':'qemu', 'type':self.image_type, 'cache':self.image_cache})
         # install disk (if any)
         if not installdev:
             installdev_list = []
