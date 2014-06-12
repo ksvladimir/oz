@@ -61,6 +61,11 @@
                   </zeroOrMore>
                 </element>
               </optional>
+              <optional>
+                <element name='auto'>
+                  <text/>
+                </element>
+              </optional>
             </element>
             <optional>
               <element name='rootpw'>

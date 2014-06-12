@@ -261,6 +261,9 @@ class Guest(object):
 
         self.auto = auto
         if self.auto is None:
+            self.auto = self.tdl.auto
+
+        if self.auto is None:
             self.auto = self.get_auto_path()
 
         self.log.debug("Name: %s, UUID: %s" % (self.tdl.name, self.uuid))

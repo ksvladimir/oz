@@ -255,6 +255,8 @@ class TDL(object):
         else:
             raise oz.OzException.OzException("Unknown install type " + self.installtype + " in TDL")
 
+        self.auto = _xml_get_value(self.doc, '/template/os/install/auto', True)
+
         self.rootpw = _xml_get_value(self.doc, '/template/os/rootpw',
                                      "root/Administrator password",
                                      optional=not rootpw_required)
