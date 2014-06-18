@@ -37,35 +37,37 @@
                 <ref name='url'/>
                 <ref name='iso'/>
               </choice>
-              <optional>
-                <element name='extras'>
-                  <zeroOrMore>
-                    <element name='directory'>
-                      <attribute name='source'>
-                        <text/>
-                      </attribute>
-                      <attribute name='destination'>
-                        <text/>
-                      </attribute>
-                    </element>
-                  </zeroOrMore>
-                  <zeroOrMore>
-                    <element name='file'>
-                      <attribute name='source'>
-                        <text/>
-                      </attribute>
-                      <attribute name='destination'>
-                        <text/>
-                      </attribute>
-                    </element>
-                  </zeroOrMore>
-                </element>
-              </optional>
-              <optional>
-                <element name='auto'>
-                  <text/>
-                </element>
-              </optional>
+              <interleave>
+                <optional>
+                  <element name='extras'>
+                    <zeroOrMore>
+                      <element name='directory'>
+                        <attribute name='source'>
+                          <text/>
+                        </attribute>
+                        <attribute name='destination'>
+                          <text/>
+                        </attribute>
+                      </element>
+                    </zeroOrMore>
+                    <zeroOrMore>
+                      <element name='file'>
+                        <attribute name='source'>
+                          <text/>
+                        </attribute>
+                        <attribute name='destination'>
+                          <text/>
+                        </attribute>
+                      </element>
+                    </zeroOrMore>
+                  </element>
+                </optional>
+                <optional>
+                  <element name='auto'>
+                    <text/>
+                  </element>
+                </optional>
+              </interleave>
             </element>
             <optional>
               <element name='rootpw'>
